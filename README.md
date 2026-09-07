@@ -46,3 +46,26 @@ and not licensed for redistribution. To reproduce, place both files in `data/` (
 first code cell.
 
 ## Repo structure
+
+## Setup
+
+```bash
+python -m venv .venv
+source .venv/bin/activate        # WSL2/Linux/macOS
+pip install -r requirements.txt
+jupyter notebook notebooks/churn_analysis.ipynb
+```
+
+## Key limitations
+
+- AUC ≈ 0.69 reflects low-signal customer data; value comes from reliable ranking, not
+  near-perfect classification.
+- Save rate and cost-per-contact are assumptions (no public benchmark) — see the
+  sensitivity analysis in the report.
+- Model lift is correlational; a randomized control holdout is needed to measure true
+  incremental retention before committing budget.
+
+## References
+
+See `reports/Retained_Revenue_Proposal.pdf`, page 13, for full sourcing (T-Mobile, Verizon,
+AT&T churn disclosures, Bain/HBR retention-economics research, scikit-learn, XGBoost).
